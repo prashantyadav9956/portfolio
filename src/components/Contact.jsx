@@ -122,7 +122,7 @@ export default function Contact() {
               {/* Phone / WhatsApp Card */}
               <div className="p-4 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-between gap-3 group hover:border-emerald-500/30 transition-all">
                 <a
-                  href={`https://wa.me/91${personalInfo.socials.phone.replace(/\D/g, '')}?text=Hello%20Prashant%2C%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect!`}
+                  href={`https://wa.me/${personalInfo.socials.phone.replace(/\D/g, '')}?text=Hello%20Prashant%2C%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect!`}
                   target="_blank"
                   rel="noreferrer"
                   className="flex items-center gap-3 overflow-hidden min-w-0 flex-1"
