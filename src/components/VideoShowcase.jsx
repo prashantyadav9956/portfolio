@@ -242,11 +242,12 @@ export default function VideoShowcase() {
                     <div className="relative aspect-video w-full bg-slate-900 overflow-hidden flex items-center justify-center">
                       <video
                         src={formatVideoUrl(vid.videoUrl)}
-                        preload="metadata"
+                        preload="auto"
                         muted
                         loop
                         playsInline
                         autoPlay
+                        onCanPlay={(e) => e.target.play().catch(() => {})}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 group-hover:brightness-110"
                       />
 
@@ -339,10 +340,12 @@ export default function VideoShowcase() {
               {/* Video Player */}
               <div className="relative aspect-video w-full bg-black">
                 <video
+                  ref={(el) => { if (el) { el.play().catch(() => {}); } }}
                   src={formatVideoUrl(activeVideo.videoUrl)}
                   controls
                   autoPlay
                   playsInline
+                  preload="auto"
                   className="w-full h-full object-contain"
                 />
               </div>
