@@ -5,6 +5,7 @@ import confetti from 'canvas-confetti';
 import {
   Send,
   Mail,
+  Phone,
   MapPin,
   CheckCircle2,
   Copy,
@@ -24,6 +25,7 @@ export default function Contact() {
   });
 
   const [copiedEmail, setCopiedEmail] = useState(false);
+  const [copiedPhone, setCopiedPhone] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
   const serviceOptions = [
@@ -41,6 +43,12 @@ export default function Contact() {
     navigator.clipboard.writeText(personalInfo.socials.email);
     setCopiedEmail(true);
     setTimeout(() => setCopiedEmail(false), 2500);
+  };
+
+  const handleCopyPhone = () => {
+    navigator.clipboard.writeText(personalInfo.socials.phone);
+    setCopiedPhone(true);
+    setTimeout(() => setCopiedPhone(false), 2500);
   };
 
   const handleSubmit = (e) => {
@@ -110,6 +118,29 @@ export default function Contact() {
               <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
                 Preferred communication is via LinkedIn or direct email booking. Typical response time is under 4 hours.
               </p>
+
+              {/* Phone Number Card with Copy button */}
+              <div className="p-4 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-between gap-3">
+                <div className="flex items-center gap-3 overflow-hidden">
+                  <div className="p-2.5 sm:p-3 rounded-xl bg-emerald-600/30 text-emerald-400 shrink-0">
+                    <Phone className="w-5 h-5" />
+                  </div>
+                  <div className="min-w-0">
+                    <span className="text-[10px] text-gray-400 uppercase font-bold tracking-wider">Phone / WhatsApp</span>
+                    <a href={`tel:${personalInfo.socials.phone.replace(/\s+/g, '')}`} className="block text-xs sm:text-sm font-bold font-syne text-white hover:text-emerald-400 transition-colors truncate">
+                      {personalInfo.socials.phone}
+                    </a>
+                  </div>
+                </div>
+                <button
+                  onClick={handleCopyPhone}
+                  className="p-2.5 rounded-xl bg-white/10 hover:bg-emerald-600 text-gray-300 hover:text-white transition-colors shrink-0"
+                  title="Copy Phone Number"
+                  data-cursor="COPY"
+                >
+                  {copiedPhone ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
+                </button>
+              </div>
 
               {/* Email Card with Copy button */}
               <div className="p-4 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-between gap-3">

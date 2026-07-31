@@ -11,7 +11,7 @@ export const personalInfo = {
   socials: {
     linkedin: "https://www.linkedin.com/in/prashant-kumar-yadav-6901b6379?utm_source=share_via&utm_content=profile&utm_medium=member_android",
     email: "prashantyadavwork010218@gmail.com",
-    phone: "+91 98765 43210"
+    phone: "+91 99567 49565"
   }
 };
 
