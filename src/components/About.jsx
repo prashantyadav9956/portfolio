@@ -129,70 +129,64 @@ export default function About() {
       {/* Resume Preview Modal Overlay */}
       <AnimatePresence>
         {showResumeModal && (
-          <div className="fixed inset-0 z-50 flex items-start justify-center pt-20 p-4 bg-slate-950/80 backdrop-blur-md overflow-y-auto">
+          <div
+            className="fixed inset-0 z-50 flex items-start justify-center pt-10 p-4 bg-slate-950/85 backdrop-blur-md overflow-y-auto"
+            onClick={(e) => { if (e.target === e.currentTarget) setShowResumeModal(false); }}
+          >
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              className="max-w-2xl w-full p-6 sm:p-8 rounded-3xl glass-panel border-white/20 relative my-4 mb-8"
+              initial={{ scale: 0.92, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.92, opacity: 0, y: 20 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 28 }}
+              className="max-w-xl w-full rounded-3xl glass-panel border-white/20 relative my-4 mb-12 overflow-hidden"
             >
-              <button
-                onClick={() => setShowResumeModal(false)}
-                className="absolute top-6 right-6 p-2 rounded-full bg-white/10 text-gray-300 hover:text-white"
-              >
-                <X className="w-5 h-5" />
-              </button>
-
-              <div className="flex items-center gap-4 mb-6 border-b border-white/10 pb-4">
-                <div className="p-3 rounded-2xl bg-violet-600/30 text-violet-400">
-                  <FileText className="w-8 h-8" />
+              {/* Modal Header */}
+              <div className="flex items-center gap-4 px-6 pt-6 pb-4 border-b border-white/10">
+                <div className="p-2.5 rounded-2xl bg-violet-600/30 text-violet-400">
+                  <FileText className="w-6 h-6" />
                 </div>
-                <div>
-                  <h3 className="text-xl font-bold font-syne text-white">Prashant Yadav — Resume Overview</h3>
-                  <p className="text-xs text-gray-400">Creative Designer & AI Content Specialist</p>
+                <div className="flex-1">
+                  <h3 className="text-lg font-bold font-syne text-white leading-tight">Prashant Yadav — Resume</h3>
+                  <p className="text-xs text-gray-400">Creative Designer &amp; AI Content Specialist</p>
+                </div>
+                <button
+                  onClick={() => setShowResumeModal(false)}
+                  className="p-2 rounded-full bg-white/10 text-gray-300 hover:text-white hover:bg-white/20 transition-colors"
+                  aria-label="Close resume modal"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              {/* Resume Image Preview */}
+              <div className="px-6 pt-5 pb-2">
+                <div className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-violet-900/20">
+                  <img
+                    src="/resume1.jpeg"
+                    alt="Prashant Yadav Resume"
+                    className="w-full object-contain bg-white"
+                    style={{ maxHeight: '60vh' }}
+                  />
                 </div>
               </div>
 
-              <div className="space-y-4 text-sm text-gray-300 mb-8">
-                <div>
-                  <h4 className="font-bold font-syne text-white text-base">Summary</h4>
-                  <p className="text-gray-400">2+ years designing award-winning digital creatives, high-retention video editing, branding systems, and AI visual assets for global brands and creators.</p>
-                </div>
-
-                <div>
-                  <h4 className="font-bold font-syne text-white text-base">Core Expertise</h4>
-                  <div className="flex flex-wrap gap-2 mt-2">
-                    {["AI Prompt Architecture", "Video Editing & Sound Design", "CTR Thumbnail Optimization", "Brand Identity Systems", "Exec Pitch Decks", "Motion Graphics"].map((s, i) => (
-                      <span key={i} className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-cyan-300">
-                        {s}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <div>
-                  <h4 className="font-bold font-syne text-white text-base">Software & Tools</h4>
-                  <p className="text-gray-400">CapCut (90%), Picsart (90%), VN Video Editor (90%), Adobe Express (85%), Adobe Lightroom (80%), Canva (80%), Adobe Premiere Pro (75%), Adobe Photoshop (70%), Midjourney v6, Runway Gen-2.</p>
-                </div>
-              </div>
-
-              <div className="flex flex-wrap gap-4">
+              {/* Action Buttons */}
+              <div className="flex flex-wrap gap-3 px-6 py-5">
+                <a
+                  href="/resume1.jpeg"
+                  download="Prashant_Yadav_Resume.jpeg"
+                  className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-violet-600 to-cyan-600 text-white font-syne font-bold text-xs tracking-wider shadow-lg shadow-violet-600/30 hover:scale-105 transition-all duration-300"
+                >
+                  <Download className="w-4 h-4" />
+                  DOWNLOAD RESUME
+                </a>
                 <a
                   href="#contact"
                   onClick={() => setShowResumeModal(false)}
-                  className="px-6 py-3 rounded-xl bg-gradient-to-r from-violet-600 to-cyan-600 text-white font-syne font-bold text-xs tracking-wider"
+                  className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl glass-panel border border-white/15 text-white font-syne font-bold text-xs tracking-wider hover:bg-white/10 transition-all duration-300"
                 >
-                  DIRECT CONTACT PRASHANT
+                  CONTACT PRASHANT
                 </a>
-                <button
-                  onClick={() => {
-                    alert("Resume downloaded! (Simulated download file)");
-                    setShowResumeModal(false);
-                  }}
-                  className="px-6 py-3 rounded-xl glass-panel text-white font-syne font-bold text-xs"
-                >
-                  DOWNLOAD PDF
-                </button>
               </div>
             </motion.div>
           </div>
