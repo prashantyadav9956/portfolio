@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { personalInfo } from '../data/portfolioData';
-import { Sparkles, ArrowUp, Clock, Heart, Linkedin } from 'lucide-react';
+import { Sparkles, ArrowUp, Clock, Heart, Link2 } from 'lucide-react';
 
 export default function Footer() {
   const [time, setTime] = useState('');
@@ -63,7 +63,7 @@ export default function Footer() {
               className="flex items-center gap-2 px-4 py-2 rounded-2xl glass-panel border-blue-500/30 text-xs font-syne font-bold text-cyan-300 hover:text-white transition-colors"
               data-cursor="LINKEDIN"
             >
-              <Linkedin className="w-4 h-4 text-blue-400" />
+              <Link2 className="w-4 h-4 text-blue-400" />
               <span>LinkedIn Profile</span>
             </a>
 

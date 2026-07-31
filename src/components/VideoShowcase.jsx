@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Play, Sparkles, Film, Video, Flame, X, TrendingUp, Calendar, CheckCircle2, Award, Clapperboard } from 'lucide-react';
+import { Play, Sparkles, Film, Flame, X, TrendingUp, Award, Clapperboard } from 'lucide-react';
 
 export const videoShowcaseData = {
   topVideos: [
@@ -30,7 +30,7 @@ export const videoShowcaseData = {
       id: "ai-1",
       title: "Boy Meets Girlfriend After Emotional Journey",
       category: "AI Narrative Cinema",
-      videoUrl: "/videos/videos/ai videos/Boy_meets_girlfriend_after_journey_202606011425.mp4",
+      videoUrl: "/videos/ai videos/Boy_meets_girlfriend_after_journey_202606011425.mp4",
       duration: "0:15",
       metrics: "Next-Gen Synthetic Media",
       description: "Hyper-realistic AI narrative scene generated using Midjourney v6 character consistency & Runway Gen-2 motion physics.",
@@ -40,7 +40,7 @@ export const videoShowcaseData = {
       id: "ai-2",
       title: "Traditional Outfit Aesthetic AI Motion",
       category: "AI Commercial Concept",
-      videoUrl: "/videos/videos/ai videos/Girl_in_traditional_outfit_plant._202606071259.mp4",
+      videoUrl: "/videos/ai videos/Girl_in_traditional_outfit_plant._202606071259.mp4",
       duration: "0:12",
       metrics: "Award-Grade Realism",
       description: "Photorealistic AI fashion model motion simulation created with custom LoRA weights and photorealistic depth lighting.",
@@ -50,7 +50,7 @@ export const videoShowcaseData = {
       id: "ai-3",
       title: "Futuristic Synthetic Storytelling Scene",
       category: "Generative Cinema",
-      videoUrl: "/videos/videos/ai videos/VN20260731_095937.mp4",
+      videoUrl: "/videos/ai videos/VN20260731_095937.mp4",
       duration: "0:25",
       metrics: "Generative Storytelling",
       description: "Cinematic synthetic sequence blending generative AI camera moves with composite lighting and atmospheric VFX.",
@@ -60,7 +60,7 @@ export const videoShowcaseData = {
       id: "ai-4",
       title: "Generative AI Character Story Sequence",
       category: "AI Concept Art",
-      videoUrl: "/videos/videos/ai videos/VN20260731_101117.mp4",
+      videoUrl: "/videos/ai videos/VN20260731_101117.mp4",
       duration: "0:35",
       metrics: "Viral Social Reach",
       description: "Custom AI character storytelling sequence engineered for commercial brand storytelling and synthetic media campaigns.",
@@ -102,16 +102,6 @@ export const videoShowcaseData = {
     },
     {
       id: "short-2",
-      title: "Marvel's New Trailer & Movie Reaction Hook",
-      category: "Micro Reel Hook",
-      videoUrl: "/videos/SHORTS/Marvel_s_New_Trailer_or_an_A24_Movie__🤯_Thunderbolts_Has_Everyone_Confused!(1080p).mp4",
-      duration: "0:45",
-      metrics: "Viral Pacing",
-      description: "Ultra-engaging vertical short created with hook retention psychology, energetic zooms, and punchy audio SFX.",
-      tags: ["Short Form", "Viral Hook", "Sound Design", "Subtitles"]
-    },
-    {
-      id: "short-3",
       title: "Brand Buddies Marketing Studio Agency Promo Reel",
       category: "Commercial Short",
       videoUrl: "/videos/SHORTS/VID-20260724-WA0005.mp4",
@@ -165,12 +155,12 @@ export default function VideoShowcase() {
       subtitle: "Fast-paced vertical shorts, dynamic motion subtitles, and high-CTR hooks designed to dominate Instagram Reels & YouTube Shorts.",
       videos: videoShowcaseData.shortVideos,
       accentColor: "from-rose-500 to-purple-500",
-      gridCols: "grid-cols-1 sm:grid-cols-3"
+      gridCols: "grid-cols-1 sm:grid-cols-2"
     }
   ];
 
   return (
-    <div className="mt-20 pt-16 border-t border-white/10">
+    <div className="mt-16 pt-12 border-t border-white/10">
       
       {/* Section Introduction */}
       <div className="text-center max-w-3xl mx-auto mb-16 px-4">
@@ -205,7 +195,7 @@ export default function VideoShowcase() {
 
       {/* Render Video Sub-sections */}
       <div className="space-y-20">
-        {sections.map((section, idx) => {
+        {sections.map((section) => {
           const Icon = section.icon;
           return (
             <div key={section.key} className="space-y-6">

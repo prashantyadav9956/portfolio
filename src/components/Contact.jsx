@@ -9,7 +9,7 @@ import {
   CheckCircle2,
   Copy,
   Check,
-  Linkedin,
+  Link2,
   MessageSquare,
   ArrowUpRight
 } from 'lucide-react';
@@ -148,7 +148,7 @@ export default function Contact() {
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-3">
                     <div className="p-2.5 rounded-xl bg-blue-600/30 text-cyan-400">
-                      <Linkedin className="w-5 h-5" />
+                      <Link2 className="w-5 h-5" />
                     </div>
                     <div>
                       <h4 className="font-syne font-bold text-white text-sm">Connect On LinkedIn</h4>
