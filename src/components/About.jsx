@@ -72,10 +72,6 @@ export default function About() {
                   <CheckCircle className="w-4 h-4 text-violet-400 shrink-0" />
                   <span>Mastery over Flow AI, Gemini & ChatGPT</span>
                 </div>
-                <div className="flex items-center gap-3 text-sm text-gray-300">
-                  <CheckCircle className="w-4 h-4 text-rose-400 shrink-0" />
-                  <span>Data-backed YouTube Thumbnail CTR Optimization</span>
-                </div>
               </div>
 
               {/* Resume Preview Modal Button */}
@@ -176,7 +172,7 @@ export default function About() {
 
                 <div>
                   <h4 className="font-bold font-syne text-white text-base">Software & Tools</h4>
-                  <p className="text-gray-400">CapCut (90%), Picsart (90%), VN Video Editor (90%), Adobe Express (85%), Adobe Lightroom (80%), Canva (80%), Adobe Premiere Pro (75%), Adobe Photoshop (70%), Midjourney v6, Stable Diffusion, Runway Gen-2.</p>
+                  <p className="text-gray-400">CapCut (90%), Picsart (90%), VN Video Editor (90%), Adobe Express (85%), Adobe Lightroom (80%), Canva (80%), Adobe Premiere Pro (75%), Adobe Photoshop (70%), Midjourney v6, Runway Gen-2.</p>
                 </div>
               </div>
 
