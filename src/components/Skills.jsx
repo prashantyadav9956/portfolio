@@ -4,7 +4,7 @@ import { skillsData } from '../data/portfolioData';
 import { Cpu, Wrench, CheckCircle, Sparkles } from 'lucide-react';
 
 export default function Skills() {
-  const [activeTab, setActiveTab] = useState('ai');
+  const [activeTab, setActiveTab] = useState('suite');
 
   return (
     <section id="skills" className="relative py-24 overflow-hidden">
@@ -45,17 +45,6 @@ export default function Skills() {
         <div className="flex justify-center mb-12 px-2">
           <div className="inline-flex max-w-full overflow-x-auto p-1.5 rounded-2xl glass-panel border-white/10 backdrop-blur-xl" style={{ scrollbarWidth: 'none' }}>
             <button
-              onClick={() => setActiveTab('ai')}
-              className={`px-4 sm:px-6 py-2.5 rounded-xl text-[11px] sm:text-xs font-bold font-syne tracking-wider whitespace-nowrap transition-all duration-300 ${
-                activeTab === 'ai'
-                  ? 'bg-gradient-to-r from-violet-600 to-cyan-600 text-white shadow-lg shadow-violet-600/30'
-                  : 'text-gray-400 hover:text-white'
-              }`}
-              data-cursor="AI TOOLS"
-            >
-              GEN-AI & PROMPTING
-            </button>
-            <button
               onClick={() => setActiveTab('suite')}
               className={`px-4 sm:px-6 py-2.5 rounded-xl text-[11px] sm:text-xs font-bold font-syne tracking-wider whitespace-nowrap transition-all duration-300 ${
                 activeTab === 'suite'
@@ -65,6 +54,17 @@ export default function Skills() {
               data-cursor="CREATIVE SUITE"
             >
               CREATIVE SUITE & TOOLS
+            </button>
+            <button
+              onClick={() => setActiveTab('ai')}
+              className={`px-4 sm:px-6 py-2.5 rounded-xl text-[11px] sm:text-xs font-bold font-syne tracking-wider whitespace-nowrap transition-all duration-300 ${
+                activeTab === 'ai'
+                  ? 'bg-gradient-to-r from-violet-600 to-cyan-600 text-white shadow-lg shadow-violet-600/30'
+                  : 'text-gray-400 hover:text-white'
+              }`}
+              data-cursor="AI TOOLS"
+            >
+              GEN-AI & PROMPTING
             </button>
           </div>
         </div>

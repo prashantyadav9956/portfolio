@@ -154,17 +154,12 @@ export const skillsData = {
   ],
   creativeSuite: [
     { name: "Adobe Photoshop", level: 99, category: "Design" },
-    { name: "Adobe Premiere Pro", level: 96, category: "Video" },
-    { name: "Adobe After Effects", level: 92, category: "VFX & Motion" },
-    { name: "Adobe Illustrator", level: 95, category: "Vector Art" },
     { name: "Adobe Lightroom", level: 96, category: "Color & Retouching" },
     { name: "CapCut", level: 97, category: "Mobile & Fast Video" },
     { name: "VN Video Editor", level: 95, category: "Mobile Video Editing" },
     { name: "Picsart", level: 94, category: "Photo Editing & Art" },
     { name: "Canva", level: 95, category: "Quick Layout & Social" },
-    { name: "Adobe Express", level: 92, category: "Brand Creatives" },
-    { name: "Figma", level: 94, category: "UI & Layout" },
-    { name: "DaVinci Resolve", level: 88, category: "Color Grading" }
+    { name: "Adobe Express", level: 92, category: "Brand Creatives" }
   ],
   coreCompetencies: [
     "Visual Storytelling",
