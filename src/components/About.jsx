@@ -66,11 +66,11 @@ export default function About() {
               <div className="space-y-3 mb-8">
                 <div className="flex items-center gap-3 text-sm text-gray-300">
                   <CheckCircle className="w-4 h-4 text-cyan-400 shrink-0" />
-                  <span>Expert in Midjourney v6, Stable Diffusion XL & Runway Gen-2</span>
+                  <span>Expert in Premiere Pro, Photoshop & Adobe Express</span>
                 </div>
                 <div className="flex items-center gap-3 text-sm text-gray-300">
                   <CheckCircle className="w-4 h-4 text-violet-400 shrink-0" />
-                  <span>Mastery over Adobe Creative Cloud (Photoshop, Premiere, After Effects)</span>
+                  <span>Mastery over Flow AI, Gemini & ChatGPT</span>
                 </div>
                 <div className="flex items-center gap-3 text-sm text-gray-300">
                   <CheckCircle className="w-4 h-4 text-rose-400 shrink-0" />

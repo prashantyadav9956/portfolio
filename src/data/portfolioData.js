@@ -146,10 +146,11 @@ export const servicesData = [
 
 export const skillsData = {
   aiTools: [
+    { name: "Flow AI", level: 95, category: "AI Creation" },
+    { name: "Google Gemini & ChatGPT", level: 96, category: "AI Strategy & Copy" },
     { name: "Midjourney v6", level: 98, category: "AI Creation" },
     { name: "Stable Diffusion / SDXL", level: 94, category: "AI Creation" },
     { name: "Runway Gen-2 & Sora", level: 90, category: "AI Video" },
-    { name: "ChatGPT & Claude Prompting", level: 96, category: "AI Copy & Strategy" },
     { name: "Topaz Gigapixel & AI Enhancers", level: 95, category: "AI Upscaling" }
   ],
   creativeSuite: [
