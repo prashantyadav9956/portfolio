@@ -176,7 +176,7 @@ export default function About() {
 
                 <div>
                   <h4 className="font-bold font-syne text-white text-base">Software & Tools</h4>
-                  <p className="text-gray-400">Midjourney v6, Stable Diffusion, Runway Gen-2, Photoshop, Illustrator, Premiere Pro, After Effects, Figma, Blender, DaVinci Resolve.</p>
+                  <p className="text-gray-400">CapCut (90%), Picsart (90%), VN Video Editor (90%), Adobe Express (85%), Adobe Lightroom (80%), Canva (80%), Adobe Premiere Pro (75%), Adobe Photoshop (70%), Midjourney v6, Stable Diffusion, Runway Gen-2.</p>
                 </div>
               </div>
 

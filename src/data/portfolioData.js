@@ -153,13 +153,14 @@ export const skillsData = {
     { name: "Topaz Gigapixel & AI Enhancers", level: 95, category: "AI Upscaling" }
   ],
   creativeSuite: [
-    { name: "Adobe Photoshop", level: 99, category: "Design" },
-    { name: "Adobe Lightroom", level: 96, category: "Color & Retouching" },
-    { name: "CapCut", level: 97, category: "Mobile & Fast Video" },
-    { name: "VN Video Editor", level: 95, category: "Mobile Video Editing" },
-    { name: "Picsart", level: 94, category: "Photo Editing & Art" },
-    { name: "Canva", level: 95, category: "Quick Layout & Social" },
-    { name: "Adobe Express", level: 92, category: "Brand Creatives" }
+    { name: "CapCut", level: 90, category: "Mobile & Fast Video" },
+    { name: "Picsart", level: 90, category: "Photo Editing & Art" },
+    { name: "VN Video Editor", level: 90, category: "Mobile Video Editing" },
+    { name: "Adobe Express", level: 85, category: "Brand Creatives" },
+    { name: "Adobe Lightroom", level: 80, category: "Color & Retouching" },
+    { name: "Canva", level: 80, category: "Quick Layout & Social" },
+    { name: "Adobe Premiere Pro", level: 75, category: "Video Editing" },
+    { name: "Adobe Photoshop", level: 70, category: "Design" }
   ],
   coreCompetencies: [
     "Visual Storytelling",
