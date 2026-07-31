@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Hero3DCanvas from './Canvas3D/Hero3DCanvas';
 import { personalInfo } from '../data/portfolioData';
-import { Sparkles, ArrowRight } from 'lucide-react';
+import { Sparkles, ArrowRight, Star, Zap } from 'lucide-react';
 
 export default function Hero() {
   const roles = [
@@ -147,9 +146,76 @@ export default function Hero() {
 
           </div>
 
-          {/* Right Column: 3D Cartoon Man Holding Camera */}
-          <div className="lg:col-span-5 relative h-[350px] sm:h-[450px] lg:h-[520px] w-full flex items-center justify-center">
-            <Hero3DCanvas />
+          {/* Right Column: Profile Photo */}
+          <div className="lg:col-span-5 relative h-[380px] sm:h-[460px] lg:h-[520px] w-full flex items-center justify-center">
+
+            {/* Outer glow ring */}
+            <div className="absolute w-[280px] h-[280px] sm:w-[340px] sm:h-[340px] lg:w-[400px] lg:h-[400px] rounded-full bg-gradient-to-tr from-violet-600/30 via-cyan-500/20 to-transparent blur-2xl animate-pulse" />
+
+            {/* Rotating dashed border */}
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 18, repeat: Infinity, ease: 'linear' }}
+              className="absolute w-[260px] h-[260px] sm:w-[320px] sm:h-[320px] lg:w-[370px] lg:h-[370px] rounded-full border-2 border-dashed border-violet-500/30"
+            />
+            <motion.div
+              animate={{ rotate: -360 }}
+              transition={{ duration: 26, repeat: Infinity, ease: 'linear' }}
+              className="absolute w-[240px] h-[240px] sm:w-[300px] sm:h-[300px] lg:w-[350px] lg:h-[350px] rounded-full border border-dashed border-cyan-500/20"
+            />
+
+            {/* Profile Photo */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.7, delay: 0.3, type: 'spring', stiffness: 120 }}
+              className="relative z-10 w-[210px] h-[210px] sm:w-[260px] sm:h-[260px] lg:w-[300px] lg:h-[300px] rounded-full overflow-hidden"
+              style={{
+                boxShadow: '0 0 0 4px rgba(139,92,246,0.4), 0 0 0 8px rgba(6,182,212,0.15), 0 20px 60px rgba(139,92,246,0.35)'
+              }}
+            >
+              <img
+                src="/profile pic.jpeg"
+                alt="Prashant Yadav — Creative Designer & AI Content Creator"
+                className="w-full h-full object-cover object-top"
+              />
+              {/* Inner overlay shine */}
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-950/40 pointer-events-none" />
+            </motion.div>
+
+            {/* Floating badge — top right */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.8, duration: 0.5 }}
+              className="absolute top-8 right-6 sm:right-4 flex items-center gap-1.5 px-3 py-2 rounded-2xl glass-panel border border-violet-500/30 shadow-lg shadow-violet-900/30"
+            >
+              <Star className="w-3.5 h-3.5 text-amber-400" />
+              <span className="text-[11px] font-bold font-syne text-white">Top Rated</span>
+            </motion.div>
+
+            {/* Floating badge — bottom left */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 1.0, duration: 0.5 }}
+              className="absolute bottom-10 left-4 sm:left-2 flex items-center gap-1.5 px-3 py-2 rounded-2xl glass-panel border border-cyan-500/30 shadow-lg shadow-cyan-900/30"
+            >
+              <Zap className="w-3.5 h-3.5 text-cyan-400" />
+              <span className="text-[11px] font-bold font-syne text-white">2+ Yrs Exp</span>
+            </motion.div>
+
+            {/* Floating badge — bottom right */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.2, duration: 0.5 }}
+              className="absolute bottom-16 right-3 sm:right-1 flex items-center gap-1.5 px-3 py-2 rounded-2xl glass-panel border border-emerald-500/30 shadow-lg shadow-emerald-900/30"
+            >
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span className="text-[11px] font-bold font-syne text-emerald-300">Available</span>
+            </motion.div>
+
           </div>
 
         </div>
