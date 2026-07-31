@@ -8,7 +8,6 @@ import About from './components/About';
 import Services from './components/Services';
 import Skills from './components/Skills';
 import Portfolio from './components/Portfolio';
-import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
@@ -29,10 +28,9 @@ export default function App() {
         <main className="relative z-10">
           <Hero />
           <About />
-          <Services />
-          <Skills />
           <Portfolio />
-          <Testimonials />
+          <Skills />
+          <Services />
           <Contact />
         </main>
 

@@ -113,6 +113,11 @@ export const videoShowcaseData = {
   ]
 };
 
+const formatVideoUrl = (url) => {
+  if (!url) return '';
+  return encodeURI(url).replace(/#/g, '%23');
+};
+
 export default function VideoShowcase() {
   const [activeVideo, setActiveVideo] = useState(null);
 
@@ -178,9 +183,9 @@ export default function VideoShowcase() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="text-3xl sm:text-5xl font-extrabold font-syne tracking-tight mb-4"
+          className="text-3xl sm:text-5xl font-extrabold font-syne text-white tracking-tight mb-4"
         >
-          Cinematic <span className="gradient-text">Showcase</span> Vault
+          Cinematic Edits & <span className="gradient-text">AI Visual Media</span>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -189,7 +194,7 @@ export default function VideoShowcase() {
           transition={{ delay: 0.2 }}
           className="text-gray-400 text-base sm:text-lg"
         >
-          Stream our curated video portfolio across synthetic AI films, high-retention commercials, long-form breakdowns, and viral reels.
+          Explore high-converting video edits, synthetic generative AI cinema, long-form explainers, and viral short-form micro-hooks.
         </motion.p>
       </div>
 
@@ -236,21 +241,17 @@ export default function VideoShowcase() {
                     {/* Video Player Preview Frame */}
                     <div className="relative aspect-video w-full bg-slate-900 overflow-hidden flex items-center justify-center">
                       <video
-                        src={vid.videoUrl}
+                        src={formatVideoUrl(vid.videoUrl)}
                         preload="metadata"
                         muted
                         loop
                         playsInline
+                        autoPlay
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 group-hover:brightness-110"
-                        onMouseOver={(e) => e.target.play().catch(() => {})}
-                        onMouseOut={(e) => {
-                          e.target.pause();
-                          e.target.currentTime = 0;
-                        }}
                       />
 
                       {/* Dark gradient overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-black/30 opacity-70 group-hover:opacity-40 transition-opacity" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-black/30 opacity-60 group-hover:opacity-30 transition-opacity" />
 
                       {/* Duration Tag */}
                       <span className="absolute top-3 right-3 px-2.5 py-0.5 rounded-full bg-slate-950/80 border border-white/20 text-[10px] font-bold font-syne text-gray-200 backdrop-blur-md">
@@ -262,9 +263,9 @@ export default function VideoShowcase() {
                         {vid.category}
                       </span>
 
-                      {/* Play Button Overlay */}
+                      {/* Play Button Overlay — shown always, tappable on mobile */}
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-14 h-14 rounded-full bg-gradient-to-r from-violet-600 to-cyan-600 text-white flex items-center justify-center shadow-2xl shadow-violet-600/50 group-hover:scale-115 transition-transform duration-300 border border-white/30">
+                        <div className="w-14 h-14 rounded-full bg-gradient-to-r from-violet-600 to-cyan-600 text-white flex items-center justify-center shadow-2xl shadow-violet-600/50 group-hover:scale-110 transition-transform duration-300 border border-white/30 opacity-80 group-hover:opacity-100">
                           <Play className="w-6 h-6 fill-white translate-x-0.5" />
                         </div>
                       </div>
@@ -338,9 +339,10 @@ export default function VideoShowcase() {
               {/* Video Player */}
               <div className="relative aspect-video w-full bg-black">
                 <video
-                  src={activeVideo.videoUrl}
+                  src={formatVideoUrl(activeVideo.videoUrl)}
                   controls
                   autoPlay
+                  playsInline
                   className="w-full h-full object-contain"
                 />
               </div>
