@@ -242,12 +242,15 @@ export default function VideoShowcase() {
                     <div className="relative aspect-video w-full bg-slate-900 overflow-hidden flex items-center justify-center">
                       <video
                         src={formatVideoUrl(vid.videoUrl)}
-                        preload="auto"
+                        preload="metadata"
                         muted
                         loop
                         playsInline
-                        autoPlay
-                        onCanPlay={(e) => e.target.play().catch(() => {})}
+                        onMouseEnter={(e) => e.target.play().catch(() => {})}
+                        onMouseLeave={(e) => {
+                          e.target.pause();
+                          e.target.currentTime = 0;
+                        }}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 group-hover:brightness-110"
                       />
 
@@ -264,9 +267,9 @@ export default function VideoShowcase() {
                         {vid.category}
                       </span>
 
-                      {/* Play Button Overlay — shown always, tappable on mobile */}
+                      {/* Play Button Overlay — shown always, click to open player */}
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-14 h-14 rounded-full bg-gradient-to-r from-violet-600 to-cyan-600 text-white flex items-center justify-center shadow-2xl shadow-violet-600/50 group-hover:scale-110 transition-transform duration-300 border border-white/30 opacity-80 group-hover:opacity-100">
+                        <div className="w-14 h-14 rounded-full bg-gradient-to-r from-violet-600 to-cyan-600 text-white flex items-center justify-center shadow-2xl shadow-violet-600/50 group-hover:scale-110 transition-transform duration-300 border border-white/30 opacity-90 group-hover:opacity-100">
                           <Play className="w-6 h-6 fill-white translate-x-0.5" />
                         </div>
                       </div>
@@ -340,7 +343,7 @@ export default function VideoShowcase() {
               {/* Video Player */}
               <div className="relative aspect-video w-full bg-black">
                 <video
-                  ref={(el) => { if (el) { el.play().catch(() => {}); } }}
+                  key={activeVideo.id}
                   src={formatVideoUrl(activeVideo.videoUrl)}
                   controls
                   autoPlay
