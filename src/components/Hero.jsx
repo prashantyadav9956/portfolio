@@ -53,9 +53,9 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-3xl sm:text-5xl lg:text-7xl font-extrabold font-syne tracking-tight leading-[1.1] mb-4"
             >
-              Crafting <span className="gradient-text">Viral Visuals</span> & Next-Gen{' '}
+              Video Editor, <span className="gradient-text">Graphic Designer</span> &{' '}
               <span className="relative inline-block">
-                AI Media
+                AI Content Creator
                 <svg className="absolute -bottom-1.5 left-0 w-full h-2.5 sm:h-3 text-cyan-400/40" viewBox="0 0 100 20" preserveAspectRatio="none">
                   <path d="M0,15 Q50,0 100,15" fill="none" stroke="currentColor" strokeWidth="4" />
                 </svg>

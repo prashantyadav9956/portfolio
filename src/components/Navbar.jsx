@@ -46,14 +46,17 @@ export default function Navbar() {
     e.preventDefault();
     setMobileMenuOpen(false);
     const targetId = href.substring(1);
-    const element = document.getElementById(targetId);
-    if (element) {
-      const offsetTop = element.offsetTop - 80;
-      window.scrollTo({
-        top: offsetTop,
-        behavior: 'smooth',
-      });
-    }
+
+    setTimeout(() => {
+      const element = document.getElementById(targetId);
+      if (element) {
+        const top = element.getBoundingClientRect().top + window.pageYOffset - 75;
+        window.scrollTo({
+          top: top > 0 ? top : 0,
+          behavior: 'smooth',
+        });
+      }
+    }, 50);
   };
 
   return (
