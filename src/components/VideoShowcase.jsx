@@ -231,48 +231,54 @@ export default function VideoShowcase() {
                     whileHover={{ y: -6 }}
                     transition={{ duration: 0.3 }}
                     onClick={() => setActiveVideo(vid)}
-                    className="group relative rounded-2xl glass-panel glass-panel-hover border-white/10 overflow-hidden cursor-pointer flex flex-col justify-between"
+                    onMouseEnter={(e) => {
+                      const v = e.currentTarget.querySelector('video');
+                      if (v) v.play().catch(() => {});
+                    }}
+                    onMouseLeave={(e) => {
+                      const v = e.currentTarget.querySelector('video');
+                      if (v) {
+                        v.pause();
+                        v.currentTime = 0;
+                      }
+                    }}
+                    className="group relative rounded-2xl glass-panel glass-panel-hover border-white/10 overflow-hidden cursor-pointer flex flex-col justify-between select-none"
                   >
                     {/* Video Player Preview Frame */}
-                    <div className="relative aspect-video w-full bg-slate-900 overflow-hidden flex items-center justify-center">
+                    <div className="relative aspect-video w-full bg-slate-900 overflow-hidden flex items-center justify-center pointer-events-none">
                       <video
                         key={vid.id}
                         preload="metadata"
                         muted
                         loop
                         playsInline
-                        onMouseEnter={(e) => e.target.play().catch(() => {})}
-                        onMouseLeave={(e) => {
-                          e.target.pause();
-                          e.target.currentTime = 0;
-                        }}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 group-hover:brightness-110"
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 group-hover:brightness-110 pointer-events-none"
                       >
                         <source src={vid.videoUrl} type="video/mp4" />
                       </video>
 
                       {/* Dark gradient overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-black/30 opacity-60 group-hover:opacity-30 transition-opacity" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-black/30 opacity-60 group-hover:opacity-30 transition-opacity pointer-events-none" />
 
                       {/* Duration Tag */}
-                      <span className="absolute top-3 right-3 px-2.5 py-0.5 rounded-full bg-slate-950/80 border border-white/20 text-[10px] font-bold font-syne text-gray-200 backdrop-blur-md">
+                      <span className="absolute top-3 right-3 px-2.5 py-0.5 rounded-full bg-slate-950/80 border border-white/20 text-[10px] font-bold font-syne text-gray-200 backdrop-blur-md pointer-events-none">
                         {vid.duration}
                       </span>
 
                       {/* Category Tag */}
-                      <span className="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-cyan-950/80 border border-cyan-500/30 text-[10px] font-bold font-syne text-cyan-400 uppercase tracking-wider backdrop-blur-md">
+                      <span className="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-cyan-950/80 border border-cyan-500/30 text-[10px] font-bold font-syne text-cyan-400 uppercase tracking-wider backdrop-blur-md pointer-events-none">
                         {vid.category}
                       </span>
 
                       {/* Play Button Overlay — shown always, click to open player */}
-                      <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                         <div className="w-14 h-14 rounded-full bg-gradient-to-r from-violet-600 to-cyan-600 text-white flex items-center justify-center shadow-2xl shadow-violet-600/50 group-hover:scale-110 transition-transform duration-300 border border-white/30 opacity-90 group-hover:opacity-100">
                           <Play className="w-6 h-6 fill-white translate-x-0.5" />
                         </div>
                       </div>
 
                       {/* Impact Pill */}
-                      <span className="absolute bottom-3 left-3 px-2.5 py-0.5 rounded-full bg-emerald-950/80 border border-emerald-500/30 text-[10px] font-bold font-syne text-emerald-400 flex items-center gap-1 backdrop-blur-md">
+                      <span className="absolute bottom-3 left-3 px-2.5 py-0.5 rounded-full bg-emerald-950/80 border border-emerald-500/30 text-[10px] font-bold font-syne text-emerald-400 flex items-center gap-1 backdrop-blur-md pointer-events-none">
                         <TrendingUp className="w-3 h-3" />
                         {vid.metrics}
                       </span>
@@ -345,6 +351,9 @@ export default function VideoShowcase() {
                   autoPlay
                   playsInline
                   preload="auto"
+                  onCanPlay={(e) => {
+                    e.target.play().catch(() => {});
+                  }}
                   className="w-full h-full object-contain"
                 >
                   <source src={activeVideo.videoUrl} type="video/mp4" />
