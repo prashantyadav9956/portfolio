@@ -113,11 +113,6 @@ export const videoShowcaseData = {
   ]
 };
 
-const formatVideoUrl = (url) => {
-  if (!url) return '';
-  return encodeURI(url).replace(/#/g, '%23');
-};
-
 export default function VideoShowcase() {
   const [activeVideo, setActiveVideo] = useState(null);
 
@@ -165,7 +160,7 @@ export default function VideoShowcase() {
   ];
 
   return (
-    <div className="mt-16 pt-12 border-t border-white/10">
+    <div className="mt-8 pt-4 border-t border-white/10">
       
       {/* Section Introduction */}
       <div className="text-center max-w-3xl mx-auto mb-16 px-4">
@@ -176,7 +171,7 @@ export default function VideoShowcase() {
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-panel border-purple-500/30 text-xs font-bold text-purple-400 font-syne uppercase tracking-wider mb-4"
         >
           <Clapperboard className="w-3.5 h-3.5 text-purple-400" />
-          <span>Cinema & Video Vault</span>
+          <span>Cinema &amp; Video Vault</span>
         </motion.div>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -185,7 +180,7 @@ export default function VideoShowcase() {
           transition={{ delay: 0.1 }}
           className="text-3xl sm:text-5xl font-extrabold font-syne text-white tracking-tight mb-4"
         >
-          Cinematic Edits & <span className="gradient-text">AI Visual Media</span>
+          Cinematic Edits &amp; <span className="gradient-text">AI Visual Media</span>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -253,7 +248,7 @@ export default function VideoShowcase() {
                         }}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 group-hover:brightness-110"
                       >
-                        <source src={formatVideoUrl(vid.videoUrl)} type="video/mp4" />
+                        <source src={vid.videoUrl} type="video/mp4" />
                       </video>
 
                       {/* Dark gradient overlay */}
@@ -352,7 +347,7 @@ export default function VideoShowcase() {
                   preload="auto"
                   className="w-full h-full object-contain"
                 >
-                  <source src={formatVideoUrl(activeVideo.videoUrl)} type="video/mp4" />
+                  <source src={activeVideo.videoUrl} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
               </div>

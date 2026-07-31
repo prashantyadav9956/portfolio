@@ -2,17 +2,18 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { portfolioProjects } from '../data/portfolioData';
 import ProjectModal from './ProjectModal';
+import VideoShowcase from './VideoShowcase';
 import CertificateShowcase from './CertificateShowcase';
 import GraphicDesignShowcase from './GraphicDesignShowcase';
-import { LayoutGrid, Eye, ArrowUpRight, TrendingUp, Sparkles, Palette, Award } from 'lucide-react';
+import { LayoutGrid, Eye, ArrowUpRight, TrendingUp, Sparkles, Film, Palette, Award } from 'lucide-react';
 
 export default function Portfolio() {
   const [activeCategory, setActiveCategory] = useState('ALL');
   const [selectedProjectIndex, setSelectedProjectIndex] = useState(null);
-  const [portfolioTab, setPortfolioTab] = useState('ALL');
+  const [portfolioTab, setPortfolioTab] = useState('VIDEO');
 
   const categories = [
-    'ALL', 'AI Content Creation', 'Branding',
+    'ALL', 'AI Content Creation', 'Branding', 'Video Editing',
     'Thumbnail Design', 'Posters', 'Social Media Creatives',
     'Photo Editing', 'Presentations', 'Graphic Design'
   ];
@@ -34,9 +35,10 @@ export default function Portfolio() {
   const currentSelectedProject = selectedProjectIndex !== null ? filteredProjects[selectedProjectIndex] : null;
 
   const tabs = [
-    { id: 'ALL',      label: 'All Work',            Icon: Sparkles, color: 'from-violet-600 to-cyan-600'   },
+    { id: 'VIDEO',    label: 'Video & Cinema',       Icon: Film,     color: 'from-rose-600 to-violet-600'   },
     { id: 'GRAPHICS', label: 'Graphic Design',       Icon: Palette,  color: 'from-fuchsia-600 to-violet-600'},
     { id: 'CERTS',    label: 'Certifications',       Icon: Award,    color: 'from-amber-500 to-orange-600'  },
+    { id: 'ALL',      label: 'All Showcase',         Icon: Sparkles, color: 'from-violet-600 to-cyan-600'   },
   ];
 
   return (
@@ -64,7 +66,7 @@ export default function Portfolio() {
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
             className="text-gray-400 text-base sm:text-lg mb-8"
           >
-            From AI visuals to graphic design, posters, thumbnails, and industry certifications.
+            From commercial video edits to AI visuals, graphic design, posters, and industry certifications.
           </motion.p>
 
           {/* ── Tab Switcher (scrollable on mobile) ─────────────── */}
@@ -92,6 +94,13 @@ export default function Portfolio() {
             </div>
           </div>
         </div>
+
+        {/* ── VIDEO SHOWCASE ───────────────────────────────────────── */}
+        {(portfolioTab === 'ALL' || portfolioTab === 'VIDEO') && (
+          <motion.div key="video-tab" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
+            <VideoShowcase />
+          </motion.div>
+        )}
 
         {/* ── GRAPHIC DESIGN SHOWCASE ─────────────────────────────── */}
         {(portfolioTab === 'ALL' || portfolioTab === 'GRAPHICS') && (
