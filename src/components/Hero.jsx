@@ -127,7 +127,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 p-4 rounded-2xl glass-panel border-white/10"
+              className="grid grid-cols-3 gap-3 sm:gap-4 p-4 rounded-2xl glass-panel border-white/10"
             >
               <div className="flex flex-col">
                 <span className="font-syne font-extrabold text-xl sm:text-2xl text-cyan-400">2+ YRS</span>
@@ -169,7 +169,7 @@ export default function Hero() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.7, delay: 0.3, type: 'spring', stiffness: 120 }}
-              className="relative z-10 w-[210px] h-[210px] sm:w-[260px] sm:h-[260px] lg:w-[300px] lg:h-[300px] rounded-full overflow-hidden"
+              className="relative z-10 w-[210px] h-[210px] sm:w-[260px] sm:h-[260px] lg:w-[300px] lg:h-[300px] rounded-full overflow-hidden animate-float"
               style={{
                 boxShadow: '0 0 0 4px rgba(139,92,246,0.4), 0 0 0 8px rgba(6,182,212,0.15), 0 20px 60px rgba(139,92,246,0.35)'
               }}
@@ -177,6 +177,8 @@ export default function Hero() {
               <img
                 src="/profile pic.jpeg"
                 alt="Prashant Yadav — Creative Designer & AI Content Creator"
+                loading="eager"
+                decoding="async"
                 className="w-full h-full object-cover object-top"
               />
               {/* Inner overlay shine */}

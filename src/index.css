@@ -29,6 +29,14 @@
   }
 }
 
+/* ── Smooth scroll & text rendering ─────────────────────────── */
+html {
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -47,9 +55,16 @@ h1, h2, h3, .font-syne {
   font-family: 'Outfit', sans-serif;
 }
 
-/* Custom Scrollbar */
+/* ── Focus-visible accessibility ────────────────────────────── */
+:focus-visible {
+  outline: 2px solid rgba(139, 92, 246, 0.7);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* ── Custom Scrollbar ────────────────────────────────────────── */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
   background: var(--bg-primary);
@@ -59,10 +74,16 @@ h1, h2, h3, .font-syne {
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(139, 92, 246, 0.8);
+  background: rgba(139, 92, 246, 0.75);
 }
 
-/* Glassmorphism utility classes */
+/* Hide scrollbar on touch/mobile devices */
+@media (pointer: coarse) {
+  ::-webkit-scrollbar { display: none; }
+  * { scrollbar-width: none; }
+}
+
+/* ── Glassmorphism utility classes ───────────────────────────── */
 .glass-panel {
   background: var(--bg-card);
   backdrop-filter: blur(16px);
@@ -72,6 +93,7 @@ h1, h2, h3, .font-syne {
 }
 
 .glass-panel-hover {
+  will-change: transform;
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -81,33 +103,36 @@ h1, h2, h3, .font-syne {
   box-shadow: 0 25px 60px rgba(139, 92, 246, 0.2);
 }
 
-/* Text Gradients */
+/* ── Text Gradients ──────────────────────────────────────────── */
 .gradient-text {
   background: linear-gradient(135deg, #38bdf8 0%, #a855f7 50%, #f43f5e 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .gradient-text-subtle {
   background: linear-gradient(135deg, #e0e7ff 0%, #a5b4fc 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .light .gradient-text-subtle {
   background: linear-gradient(135deg, #1e1b4b 0%, #4338ca 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-/* Custom Cursor styling */
+/* ── Custom Cursor ───────────────────────────────────────────── */
 body.custom-cursor-enabled,
 body.custom-cursor-enabled a,
 body.custom-cursor-enabled button {
   cursor: none !important;
 }
 
-/* Shimmer animation */
+/* ── Shimmer animation ───────────────────────────────────────── */
 @keyframes shimmer {
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
@@ -119,7 +144,17 @@ body.custom-cursor-enabled button {
   animation: shimmer 3s infinite;
 }
 
-/* Grid pattern background */
+/* ── Floating animation (profile photo) ─────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+/* ── Grid pattern background ─────────────────────────────────── */
 .bg-grid-pattern {
   background-size: 40px 40px;
   background-image: 
@@ -132,4 +167,17 @@ body.custom-cursor-enabled button {
   background-image: 
     linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+}
+
+/* ── Selection highlight ─────────────────────────────────────── */
+::selection {
+  background: rgba(139, 92, 246, 0.35);
+  color: #fff;
+}
+
+/* ── Smooth image rendering ─────────────────────────────────── */
+img {
+  image-rendering: auto;
+  max-width: 100%;
+  height: auto;
 }

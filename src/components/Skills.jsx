@@ -42,11 +42,11 @@ export default function Skills() {
         </div>
 
         {/* Category Filter Tabs */}
-        <div className="flex justify-center mb-12">
-          <div className="inline-flex p-1.5 rounded-2xl glass-panel border-white/10 backdrop-blur-xl">
+        <div className="flex justify-center mb-12 px-2">
+          <div className="inline-flex max-w-full overflow-x-auto p-1.5 rounded-2xl glass-panel border-white/10 backdrop-blur-xl" style={{ scrollbarWidth: 'none' }}>
             <button
               onClick={() => setActiveTab('ai')}
-              className={`px-6 py-2.5 rounded-xl text-xs font-bold font-syne tracking-wider transition-all duration-300 ${
+              className={`px-4 sm:px-6 py-2.5 rounded-xl text-[11px] sm:text-xs font-bold font-syne tracking-wider whitespace-nowrap transition-all duration-300 ${
                 activeTab === 'ai'
                   ? 'bg-gradient-to-r from-violet-600 to-cyan-600 text-white shadow-lg shadow-violet-600/30'
                   : 'text-gray-400 hover:text-white'
@@ -57,7 +57,7 @@ export default function Skills() {
             </button>
             <button
               onClick={() => setActiveTab('suite')}
-              className={`px-6 py-2.5 rounded-xl text-xs font-bold font-syne tracking-wider transition-all duration-300 ${
+              className={`px-4 sm:px-6 py-2.5 rounded-xl text-[11px] sm:text-xs font-bold font-syne tracking-wider whitespace-nowrap transition-all duration-300 ${
                 activeTab === 'suite'
                   ? 'bg-gradient-to-r from-violet-600 to-cyan-600 text-white shadow-lg shadow-violet-600/30'
                   : 'text-gray-400 hover:text-white'

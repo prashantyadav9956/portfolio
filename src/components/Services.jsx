@@ -137,12 +137,12 @@ export default function Services() {
       {/* Service Detail Modal */}
       <AnimatePresence>
         {selectedService && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
+          <div className="fixed inset-0 z-50 flex items-start justify-center pt-20 p-4 bg-slate-950/80 backdrop-blur-md overflow-y-auto">
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              className="max-w-xl w-full p-8 rounded-3xl glass-panel border-white/20 relative"
+              className="max-w-xl w-full p-6 sm:p-8 rounded-3xl glass-panel border-white/20 relative my-4 mb-8"
             >
               <button
                 onClick={() => setSelectedService(null)}

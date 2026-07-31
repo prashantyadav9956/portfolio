@@ -90,8 +90,8 @@ export default function Footer() {
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] sm:text-xs text-gray-500 text-center sm:text-left">
           <p>© {new Date().getFullYear()} Prashant Yadav. All Rights Reserved.</p>
           <p className="font-syne text-xs">
-            <span className="text-gray-500">Made by </span>
-            <span className="text-cyan-400 font-extrabold">Saksham Agrahari</span>
+            <span className="text-gray-500">Crafted with ❤️ by </span>
+            <span className="text-cyan-400 font-extrabold">Prashant Yadav</span>
           </p>
         </div>
 
