@@ -119,19 +119,27 @@ export default function Contact() {
                 Preferred communication is via LinkedIn or direct email booking. Typical response time is under 4 hours.
               </p>
 
-              {/* Phone Number Card with Copy button */}
-              <div className="p-4 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-between gap-3">
-                <div className="flex items-center gap-3 overflow-hidden">
-                  <div className="p-2.5 sm:p-3 rounded-xl bg-emerald-600/30 text-emerald-400 shrink-0">
+              {/* Phone / WhatsApp Card */}
+              <div className="p-4 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-between gap-3 group hover:border-emerald-500/30 transition-all">
+                <a
+                  href={`https://wa.me/91${personalInfo.socials.phone.replace(/\D/g, '')}?text=Hello%20Prashant%2C%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20connect!`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-3 overflow-hidden min-w-0 flex-1"
+                  data-cursor="WHATSAPP"
+                >
+                  <div className="p-2.5 sm:p-3 rounded-xl bg-emerald-600/30 text-emerald-400 shrink-0 group-hover:scale-105 transition-transform">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div className="min-w-0">
-                    <span className="text-[10px] text-gray-400 uppercase font-bold tracking-wider">Phone / WhatsApp</span>
-                    <a href={`tel:${personalInfo.socials.phone.replace(/\s+/g, '')}`} className="block text-xs sm:text-sm font-bold font-syne text-white hover:text-emerald-400 transition-colors truncate">
+                    <span className="text-[10px] text-gray-400 uppercase font-bold tracking-wider flex items-center gap-1">
+                      Phone / WhatsApp <ArrowUpRight className="w-3 h-3 text-emerald-400" />
+                    </span>
+                    <span className="block text-xs sm:text-sm font-bold font-syne text-white group-hover:text-emerald-400 transition-colors truncate">
                       {personalInfo.socials.phone}
-                    </a>
+                    </span>
                   </div>
-                </div>
+                </a>
                 <button
                   onClick={handleCopyPhone}
                   className="p-2.5 rounded-xl bg-white/10 hover:bg-emerald-600 text-gray-300 hover:text-white transition-colors shrink-0"
@@ -142,17 +150,25 @@ export default function Contact() {
                 </button>
               </div>
 
-              {/* Email Card with Copy button */}
-              <div className="p-4 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-between gap-3">
-                <div className="flex items-center gap-3 overflow-hidden">
-                  <div className="p-2.5 sm:p-3 rounded-xl bg-violet-600/30 text-violet-400 shrink-0">
+              {/* Email Card with mailto link */}
+              <div className="p-4 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-between gap-3 group hover:border-violet-500/30 transition-all">
+                <a
+                  href={`mailto:${personalInfo.socials.email}?subject=Project%20Inquiry%20from%20Portfolio`}
+                  className="flex items-center gap-3 overflow-hidden min-w-0 flex-1"
+                  data-cursor="EMAIL"
+                >
+                  <div className="p-2.5 sm:p-3 rounded-xl bg-violet-600/30 text-violet-400 shrink-0 group-hover:scale-105 transition-transform">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div className="min-w-0">
-                    <span className="text-[10px] text-gray-400 uppercase font-bold tracking-wider">Email Address</span>
-                    <p className="text-xs sm:text-sm font-bold font-syne text-white truncate">{personalInfo.socials.email}</p>
+                    <span className="text-[10px] text-gray-400 uppercase font-bold tracking-wider flex items-center gap-1">
+                      Email Address <ArrowUpRight className="w-3 h-3 text-violet-400" />
+                    </span>
+                    <span className="block text-xs sm:text-sm font-bold font-syne text-white group-hover:text-violet-400 transition-colors truncate">
+                      {personalInfo.socials.email}
+                    </span>
                   </div>
-                </div>
+                </a>
                 <button
                   onClick={handleCopyEmail}
                   className="p-2.5 rounded-xl bg-white/10 hover:bg-violet-600 text-gray-300 hover:text-white transition-colors shrink-0"
