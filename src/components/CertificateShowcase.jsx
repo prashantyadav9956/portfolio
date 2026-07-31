@@ -5,7 +5,7 @@ import { Award, X, ChevronLeft, ChevronRight, ZoomIn, Download, BadgeCheck, Star
 const certificates = [
   {
     id: 'cert-1',
-    title: 'Digital Marketing & Content Strategy',
+    title: 'Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate',
     issuer: 'Oracle',
     date: '2023',
     type: 'pdf',
@@ -17,7 +17,7 @@ const certificates = [
   },
   {
     id: 'cert-2',
-    title: 'Professional Achievement & Excellence',
+    title: 'Certificate of Completion',
     issuer: 'Deloitte',
     date: '2023',
     type: 'pdf',

@@ -131,17 +131,14 @@ export default function Hero() {
               className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 p-4 rounded-2xl glass-panel border-white/10"
             >
               <div className="flex flex-col">
-                <span className="font-syne font-extrabold text-xl sm:text-2xl text-cyan-400">5+ YRS</span>
+                <span className="font-syne font-extrabold text-xl sm:text-2xl text-cyan-400">2+ YRS</span>
                 <span className="text-[11px] sm:text-xs text-gray-400 font-medium">Experience</span>
               </div>
               <div className="flex flex-col border-l border-white/10 pl-3 sm:pl-4">
                 <span className="font-syne font-extrabold text-xl sm:text-2xl text-violet-400">350+</span>
                 <span className="text-[11px] sm:text-xs text-gray-400 font-medium">Projects Done</span>
               </div>
-              <div className="flex flex-col border-l border-white/10 pl-3 sm:pl-4">
-                <span className="font-syne font-extrabold text-xl sm:text-2xl text-rose-400">120M+</span>
-                <span className="text-[11px] sm:text-xs text-gray-400 font-medium">Views Generated</span>
-              </div>
+
               <div className="flex flex-col border-l border-white/10 pl-3 sm:pl-4">
                 <span className="font-syne font-extrabold text-xl sm:text-2xl text-emerald-400">99.4%</span>
                 <span className="text-[11px] sm:text-xs text-gray-400 font-medium">Satisfaction</span>

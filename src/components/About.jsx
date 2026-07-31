@@ -160,7 +160,7 @@ export default function About() {
               <div className="space-y-4 text-sm text-gray-300 mb-8">
                 <div>
                   <h4 className="font-bold font-syne text-white text-base">Summary</h4>
-                  <p className="text-gray-400">5+ years designing award-winning digital creatives, high-retention video editing, branding systems, and AI visual assets with over 120M+ cumulative views.</p>
+                  <p className="text-gray-400">2+ years designing award-winning digital creatives, high-retention video editing, branding systems, and AI visual assets for global brands and creators.</p>
                 </div>
 
                 <div>
