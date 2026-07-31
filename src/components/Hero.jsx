@@ -51,9 +51,11 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-3xl sm:text-5xl lg:text-7xl font-extrabold font-syne tracking-tight leading-[1.1] mb-4"
+              className="text-3xl sm:text-5xl lg:text-[3.25rem] xl:text-6xl font-extrabold font-syne tracking-tight leading-[1.15] mb-4"
             >
-              Video Editor, <span className="gradient-text">Graphic Designer</span> &{' '}
+              Video Editor, <span className="gradient-text">Graphic Designer</span>
+              <br className="hidden sm:block" />
+              {' '}&{' '}
               <span className="relative inline-block">
                 AI Content Creator
                 <svg className="absolute -bottom-1.5 left-0 w-full h-2.5 sm:h-3 text-cyan-400/40" viewBox="0 0 100 20" preserveAspectRatio="none">
