@@ -216,7 +216,7 @@ export default function GraphicDesignShowcase() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[200] bg-slate-950/95 backdrop-blur-xl flex items-center justify-center p-4"
+            className="fixed inset-0 z-[200] bg-slate-950/95 backdrop-blur-xl flex items-start justify-center pt-20 p-4 overflow-y-auto"
             onClick={closeLightbox}
           >
             <motion.div
@@ -224,7 +224,7 @@ export default function GraphicDesignShowcase() {
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.85, opacity: 0 }}
               transition={{ type: 'spring', stiffness: 260, damping: 22 }}
-              className="relative max-w-4xl w-full max-h-[90vh] rounded-3xl overflow-hidden glass-panel border border-white/15 shadow-2xl shadow-fuchsia-900/40 flex flex-col"
+              className="relative max-w-4xl w-full rounded-3xl overflow-hidden glass-panel border border-white/15 shadow-2xl shadow-fuchsia-900/40 flex flex-col mb-8"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Top Bar */}

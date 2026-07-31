@@ -6,23 +6,25 @@ const certificates = [
   {
     id: 'cert-1',
     title: 'Digital Marketing & Content Strategy',
-    issuer: 'Certified Institute',
+    issuer: 'Oracle',
     date: '2023',
     type: 'pdf',
     src: '/Certificate/eCertificate.pdf',
-    color: 'from-violet-700 via-purple-800 to-indigo-900',
-    badge: '📜 Certified',
+    thumbnail: '/Certificate/20230126_233439.png',
+    color: 'from-red-700 via-orange-800 to-rose-900',
+    badge: '🔴 Oracle Certified',
     skills: ['Digital Marketing', 'Content Strategy', 'Campaign Management', 'ROI Optimization'],
   },
   {
     id: 'cert-2',
     title: 'Professional Achievement & Excellence',
-    issuer: 'Certified Institute',
+    issuer: 'Deloitte',
     date: '2023',
     type: 'pdf',
     src: '/Certificate/eCertificate1.pdf',
-    color: 'from-amber-700 via-orange-800 to-red-900',
-    badge: '🏆 Achievement',
+    thumbnail: '/Certificate/20230127_124357.png',
+    color: 'from-green-700 via-emerald-800 to-teal-900',
+    badge: '🟢 Deloitte Certified',
     skills: ['Leadership', 'Project Management', 'Professional Excellence', 'Industry Recognition'],
   },
 ];
@@ -86,9 +88,9 @@ export default function CertificateShowcase() {
           >
             {/* Certificate Image Preview */}
             <div className={`relative w-full h-44 bg-gradient-to-br ${cert.color} flex items-center justify-center overflow-hidden`}>
-              {cert.type === 'image' ? (
+              {cert.thumbnail ? (
                 <img
-                  src={cert.src}
+                  src={cert.thumbnail}
                   alt={cert.title}
                   className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
                 />
@@ -137,7 +139,7 @@ export default function CertificateShowcase() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[200] bg-slate-950/95 backdrop-blur-xl flex items-center justify-center p-4"
+            className="fixed inset-0 z-[200] bg-slate-950/95 backdrop-blur-xl flex items-start justify-center p-4 pt-20 overflow-y-auto"
             onClick={closeLightbox}
           >
             <motion.div

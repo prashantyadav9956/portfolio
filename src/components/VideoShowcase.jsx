@@ -309,13 +309,13 @@ export default function VideoShowcase() {
       {/* Full HD Lightbox Video Player Modal */}
       <AnimatePresence>
         {activeVideo && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-950/90 backdrop-blur-xl overflow-y-auto">
+          <div className="fixed inset-0 z-50 flex items-start justify-center pt-20 p-4 sm:p-6 bg-slate-950/90 backdrop-blur-xl overflow-y-auto">
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="max-w-4xl w-full rounded-3xl glass-panel border-white/20 relative overflow-hidden shadow-2xl my-auto"
+              className="max-w-4xl w-full rounded-3xl glass-panel border-white/20 relative overflow-hidden shadow-2xl my-4 mb-8"
             >
               {/* Modal Header */}
               <div className="p-4 sm:p-6 flex items-center justify-between border-b border-white/10 bg-slate-900/50">
