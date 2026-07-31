@@ -3,7 +3,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { portfolioProjects } from '../data/portfolioData';
 import ProjectModal from './ProjectModal';
 import VideoShowcase from './VideoShowcase';
-import { LayoutGrid, Eye, ArrowUpRight, TrendingUp, Sparkles, Film, Palette } from 'lucide-react';
+import CertificateShowcase from './CertificateShowcase';
+import GraphicDesignShowcase from './GraphicDesignShowcase';
+import { LayoutGrid, Eye, ArrowUpRight, TrendingUp, Sparkles, Film, Palette, Award } from 'lucide-react';
 
 export default function Portfolio() {
   const [activeCategory, setActiveCategory] = useState('ALL');
@@ -32,12 +34,20 @@ export default function Portfolio() {
 
   const currentSelectedProject = selectedProjectIndex !== null ? filteredProjects[selectedProjectIndex] : null;
 
+  const tabs = [
+    { id: 'ALL',      label: 'All Work',            Icon: Sparkles, color: 'from-violet-600 to-cyan-600'   },
+    { id: 'DESIGN',   label: 'Case Studies',         Icon: LayoutGrid, color: 'from-cyan-600 to-blue-600'  },
+    { id: 'VIDEO',    label: 'Video & Cinema',       Icon: Film,     color: 'from-rose-600 to-violet-600'   },
+    { id: 'GRAPHICS', label: 'Graphic Design',       Icon: Palette,  color: 'from-fuchsia-600 to-violet-600'},
+    { id: 'CERTS',    label: 'Certifications',       Icon: Award,    color: 'from-amber-500 to-orange-600'  },
+  ];
+
   return (
     <section id="portfolio" className="relative py-24 bg-slate-950/40 border-b border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
-        {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10">
+        {/* ── Header ─────────────────────────────────────────────── */}
+        <div className="text-center max-w-3xl mx-auto mb-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-panel border-cyan-500/30 text-xs font-bold text-cyan-400 font-syne uppercase tracking-wider mb-4"
@@ -45,52 +55,58 @@ export default function Portfolio() {
             <LayoutGrid className="w-3.5 h-3.5" />
             <span>Showcase & Case Studies</span>
           </motion.div>
+
           <motion.h2
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
             className="text-3xl sm:text-5xl font-extrabold font-syne tracking-tight mb-4"
           >
-            Selected <span className="gradient-text">Masterpieces</span> & Works
+            Selected <span className="gradient-text">Masterpieces</span> &amp; Works
           </motion.h2>
+
           <motion.p
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
             className="text-gray-400 text-base sm:text-lg mb-8"
           >
-            Explore client campaigns, AI visual concepts, high-converting thumbnails, and cinematic video projects.
+            From cinematic video edits to brand identity design, AI visuals, graphic creatives, and industry certifications.
           </motion.p>
 
-          {/* Main Tab Switcher */}
-          <div className="inline-flex flex-wrap items-center justify-center p-1.5 rounded-2xl sm:rounded-full glass-panel border-white/10 gap-2 mb-4">
-            {[
-              { id: 'ALL',    label: 'Full Portfolio & Videos', Icon: Sparkles },
-              { id: 'DESIGN', label: 'Design Case Studies',     Icon: Palette  },
-              { id: 'VIDEO',  label: 'Cinema & Video Vault',    Icon: Film     },
-            ].map(({ id, label, Icon }) => (
-              <button
-                key={id}
-                onClick={() => setPortfolioTab(id)}
-                className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold font-syne tracking-wider transition-all duration-300 ${
-                  portfolioTab === id
-                    ? 'bg-gradient-to-r from-violet-600 to-cyan-600 text-white shadow-lg shadow-violet-600/30'
-                    : 'text-gray-400 hover:text-white'
-                }`}
-              >
-                <Icon className="w-3.5 h-3.5" />
-                <span>{label}</span>
-              </button>
-            ))}
+          {/* ── Tab Switcher (scrollable on mobile) ─────────────── */}
+          <div className="relative">
+            <div className="pointer-events-none absolute left-0 top-0 h-full w-8 bg-gradient-to-r from-slate-950 to-transparent z-10 sm:hidden" />
+            <div className="pointer-events-none absolute right-0 top-0 h-full w-8 bg-gradient-to-l from-slate-950 to-transparent z-10 sm:hidden" />
+            <div
+              className="flex items-center gap-2 overflow-x-auto py-2 px-1 sm:flex-wrap sm:justify-center sm:overflow-visible"
+              style={{ scrollbarWidth: 'none' }}
+            >
+              {tabs.map(({ id, label, Icon, color }) => (
+                <button
+                  key={id}
+                  onClick={() => setPortfolioTab(id)}
+                  className={`flex-shrink-0 flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold font-syne tracking-wider transition-all duration-300 ${
+                    portfolioTab === id
+                      ? `bg-gradient-to-r ${color} text-white shadow-lg`
+                      : 'text-gray-400 glass-panel border border-white/10 hover:text-white'
+                  }`}
+                >
+                  <Icon className="w-3.5 h-3.5" />
+                  <span>{label}</span>
+                </button>
+              ))}
+            </div>
           </div>
         </div>
 
-        {/* ── DESIGN CASE STUDIES ───────────────────────────────────────── */}
+        {/* ── DESIGN CASE STUDIES ────────────────────────────────── */}
         {(portfolioTab === 'ALL' || portfolioTab === 'DESIGN') && (
-          <div className="mb-16">
-
-            {/* Smooth horizontal-scroll category filter */}
+          <motion.div
+            key="design-tab"
+            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}
+            className="mb-16"
+          >
+            {/* Category filter */}
             <div className="relative mb-10">
-              {/* Fade edges */}
               <div className="pointer-events-none absolute left-0 top-0 h-full w-10 bg-gradient-to-r from-slate-950 to-transparent z-10" />
               <div className="pointer-events-none absolute right-0 top-0 h-full w-10 bg-gradient-to-l from-slate-950 to-transparent z-10" />
-
               <div
                 className="flex items-center gap-2 overflow-x-auto py-2 px-3"
                 style={{ scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch' }}
@@ -110,7 +126,7 @@ export default function Portfolio() {
                       {isActive && (
                         <motion.div
                           layoutId="activeCategoryBg"
-                          className="absolute inset-0 bg-gradient-to-r from-violet-600 to-cyan-600 rounded-full -z-10 shadow-md shadow-violet-500/30"
+                          className="absolute inset-0 bg-gradient-to-r from-violet-600 to-cyan-600 rounded-full -z-10"
                           transition={{ type: 'spring', stiffness: 350, damping: 30 }}
                         />
                       )}
@@ -121,7 +137,7 @@ export default function Portfolio() {
               </div>
             </div>
 
-            {/* Portfolio Grid */}
+            {/* Grid */}
             <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               <AnimatePresence>
                 {filteredProjects.map((project, idx) => (
@@ -135,7 +151,6 @@ export default function Portfolio() {
                     className="group relative rounded-3xl glass-panel glass-panel-hover border-white/10 overflow-hidden cursor-pointer flex flex-col justify-between"
                     data-cursor="VIEW"
                   >
-                    {/* Thumbnail Frame */}
                     <div
                       className="w-full h-56 relative overflow-hidden flex items-center justify-center p-6 transition-transform duration-500 group-hover:scale-105"
                       style={{ background: project.imageBg }}
@@ -158,7 +173,6 @@ export default function Portfolio() {
                       </div>
                     </div>
 
-                    {/* Card Content */}
                     <div className="p-6 flex flex-col justify-between flex-grow">
                       <div>
                         <div className="flex items-center justify-between text-xs text-gray-400 font-semibold mb-2">
@@ -175,8 +189,7 @@ export default function Portfolio() {
                         </div>
                         <div className="pt-3 border-t border-white/10 flex items-center justify-between">
                           <span className="text-xs font-bold font-syne text-cyan-400 group-hover:translate-x-1 transition-transform duration-300 flex items-center gap-1">
-                            VIEW CASE STUDY
-                            <ArrowUpRight className="w-3.5 h-3.5" />
+                            VIEW CASE STUDY <ArrowUpRight className="w-3.5 h-3.5" />
                           </span>
                         </div>
                       </div>
@@ -185,17 +198,33 @@ export default function Portfolio() {
                 ))}
               </AnimatePresence>
             </motion.div>
-          </div>
+          </motion.div>
         )}
 
-        {/* ── VIDEO SHOWCASE ───────────────────────────────────────────── */}
+        {/* ── VIDEO SHOWCASE ───────────────────────────────────────── */}
         {(portfolioTab === 'ALL' || portfolioTab === 'VIDEO') && (
-          <VideoShowcase />
+          <motion.div key="video-tab" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
+            <VideoShowcase />
+          </motion.div>
+        )}
+
+        {/* ── GRAPHIC DESIGN SHOWCASE ─────────────────────────────── */}
+        {(portfolioTab === 'ALL' || portfolioTab === 'GRAPHICS') && (
+          <motion.div key="graphics-tab" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
+            <GraphicDesignShowcase />
+          </motion.div>
+        )}
+
+        {/* ── CERTIFICATES SHOWCASE ────────────────────────────────── */}
+        {(portfolioTab === 'ALL' || portfolioTab === 'CERTS') && (
+          <motion.div key="certs-tab" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
+            <CertificateShowcase />
+          </motion.div>
         )}
 
       </div>
 
-      {/* Project Detail Modal */}
+      {/* Project Modal */}
       <ProjectModal
         project={currentSelectedProject}
         onClose={() => setSelectedProjectIndex(null)}
