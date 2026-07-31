@@ -241,7 +241,7 @@ export default function VideoShowcase() {
                     {/* Video Player Preview Frame */}
                     <div className="relative aspect-video w-full bg-slate-900 overflow-hidden flex items-center justify-center">
                       <video
-                        src={formatVideoUrl(vid.videoUrl)}
+                        key={vid.id}
                         preload="metadata"
                         muted
                         loop
@@ -252,7 +252,9 @@ export default function VideoShowcase() {
                           e.target.currentTime = 0;
                         }}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 group-hover:brightness-110"
-                      />
+                      >
+                        <source src={formatVideoUrl(vid.videoUrl)} type="video/mp4" />
+                      </video>
 
                       {/* Dark gradient overlay */}
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-black/30 opacity-60 group-hover:opacity-30 transition-opacity" />
@@ -344,13 +346,15 @@ export default function VideoShowcase() {
               <div className="relative aspect-video w-full bg-black">
                 <video
                   key={activeVideo.id}
-                  src={formatVideoUrl(activeVideo.videoUrl)}
                   controls
                   autoPlay
                   playsInline
                   preload="auto"
                   className="w-full h-full object-contain"
-                />
+                >
+                  <source src={formatVideoUrl(activeVideo.videoUrl)} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
               </div>
 
               {/* Modal Body Info */}
